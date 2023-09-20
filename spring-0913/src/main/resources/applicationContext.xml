@@ -30,7 +30,6 @@
         <property name="id" value="1"></property>
         <property name="pwd" value="123"></property>
         <property name="name" value="admin"></property>
-
     </bean>
     <bean id="user" class="com.ssm.entity.User">
         <property name="userID" value="10010"></property>
@@ -41,6 +40,7 @@
         <property name="user" ref="user"></property>
     </bean>
     <bean id="admin" class="com.ssm.entity.AdminInfo" p:id="111" p:name="admin111" p:pwd="admin">
-    </bean>
 
+    </bean>
+    <bean id="userDAO" class="com.ssm.dao.impl.UserDAOImpl"></bean>
 </beans>
