@@ -9,8 +9,10 @@ public class TestScopeLife {
 		ApplicationContext ctx = new ClassPathXmlApplicationContext("applicationContext.xml");
 		Batman batman = (Batman)ctx.getBean("batman");
 		batman.doAction();
-		
+
 		((ClassPathXmlApplicationContext)ctx).close();
+
+
 	}
 
 }

@@ -1,73 +1,67 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xmlns:p="http://www.springframework.org/schema/p"
-    xsi:schemaLocation="http://www.springframework.org/schema/beans
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
         https://www.springframework.org/schema/beans/spring-beans.xsd">
-        <!-- 小写java文件名         从包开始写路径 -->
-<bean id="helloSpring" class="com.ssm.HelloSpring">
+    <!-- 小写java文件名         从包开始写路径 -->
+    <bean id="helloSpring" class="com.ssm.HelloSpring">
         <!-- name写java文件属性名       value自定义-->
-<property name="userName" value="张三"></property> 
+        <property name="userName" value="张三"></property>
 
-</bean>
-<bean id="circle" class="com.test.Circle">
-</bean>
-<bean id="square" class="com.test.Square">
-</bean>
-<bean id="cat" class="com.animal.Cat">
-</bean>
-<bean id="dog" class="com.animal.Dog">
-</bean>
-
-
-
-<bean id="adminInfo" class="com.ssm.entity.AdminInfo"  scope="prototype">
-<!--       <constructor-arg name="pwd" value="123"></constructor-arg>
-      <constructor-arg name="name" value="admin"></constructor-arg> -->
-      <property name="id" value="999"></property>
-      <constructor-arg index="1" value="123456"></constructor-arg>
-      <constructor-arg index="0" value="admin123"></constructor-arg>
-</bean>
-
-<bean id="user" class="com.ssm.entity.User">
-      <property name="userID" value="100"></property>
-      <property name="userName" value="student"></property>
-     <!-- <constructor-arg name="userID" value="100"></constructor-arg>
-      <constructor-arg name="userName" value="student"></constructor-arg> -->
-</bean>
-
-<bean id="person" class="com.ssm.entity.Person">
-      <property name="user" ref="user"></property>
-      <!-- <constructor-arg name="user" ref="user"></constructor-arg> -->
-</bean>
-
-<bean id="admin" class="com.ssm.entity.AdminInfo" p:id="111" p:name="admin111" p:pwd="admin">    
-</bean>
-<bean id="userDAO" class="com.ssm.dao.impl.UserDAOimpl"></bean>
-<bean id="userService" class="com.ssm.service.impl.UserServiceImpl">
-      <property name="userDAO" ref="userDAO"></property>
-</bean>
+    </bean>
+    <bean id="circle" class="com.test.Circle">
+    </bean>
+    <bean id="square" class="com.test.Square">
+    </bean>
+    <bean id="cat" class="com.animal.Cat">
+    </bean>
+    <bean id="dog" class="com.animal.Dog">
+    </bean>
 
 
+    <bean id="adminInfo" class="com.ssm.entity.AdminInfo" scope="prototype">
+        <!--       <constructor-arg name="pwd" value="123"></constructor-arg>
+              <constructor-arg name="name" value="admin"></constructor-arg> -->
+        <property name="id" value="999"></property>
+        <constructor-arg index="1" value="123456"></constructor-arg>
+        <constructor-arg index="0" value="admin123"></constructor-arg>
+    </bean>
 
- <bean id="wuhanhui" class="com.ssm.entity.Wuhanhui"  scope="prototype">
-      <constructor-arg name="pwd" value="2061100021"></constructor-arg>
-      <constructor-arg name="name" value="吴晗辉"></constructor-arg>
-</bean>
+    <bean id="user" class="com.ssm.entity.User">
+        <property name="userID" value="100"></property>
+        <property name="userName" value="student"></property>
+        <!-- <constructor-arg name="userID" value="100"></constructor-arg>
+         <constructor-arg name="userName" value="student"></constructor-arg> -->
+    </bean>
+
+    <bean id="person" class="com.ssm.entity.Person">
+        <property name="user" ref="user"></property>
+        <!-- <constructor-arg name="user" ref="user"></constructor-arg> -->
+    </bean>
+
+    <bean id="admin" class="com.ssm.entity.AdminInfo" p:id="111" p:name="admin111" p:pwd="admin">
+    </bean>
+    <bean id="userDAO" class="com.ssm.dao.impl.UserDAOimpl"/>
+    <bean id="userService" class="com.ssm.service.impl.UserServiceImpl">
+        <property name="userDAO" ref="userDAO"/>
+    </bean>
 
 
-
-<bean id="wuhanhuiDAO" class="com.ssm.dao.impl.WuhanhuiDAOImpl"></bean>
-<bean id="wuhanhuiService" class="com.ssm.service.impl.UserServiceImpl">
-      <property name="wuhanhuiDAO" ref="wuhanhuiDAO"></property>
-</bean>
-
+    <bean id="wuhanhui" class="com.ssm.entity.Wuhanhui" scope="prototype">
+        <constructor-arg name="pwd" value="2031030176"/>
+        <constructor-arg name="name" value="吴晗辉"/>
+    </bean>
 
 
+    <bean id="wuhanhuiDAO" class="com.ssm.dao.impl.WuhanhuiDAOImpl"/>
+    <bean id="wuhanhuiService" class="com.ssm.service.impl.UserServiceImpl">
+        <property name="wuhanhuiDAO" ref="wuhanhuiDAO"/>
+    </bean>
 
-<bean id="hero" class="com.ssm.entity.Hero" init-method="born" destroy-method="destroy"></bean>
-<bean id="batman" class="com.ssm.Batman"></bean>
 
+    <bean id="hero" class="com.ssm.entity.Hero" init-method="born" destroy-method="destroy"/>
+    <bean id="batman" class="com.ssm.Batman"/>
 
 
 </beans>
