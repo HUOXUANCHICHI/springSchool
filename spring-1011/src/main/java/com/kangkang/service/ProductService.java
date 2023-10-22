@@ -1,4 +1,4 @@
-package com.ablaze.service;
+package com.kangkang.service;
 
 /**
  * @author ablaze
@@ -8,8 +8,6 @@ package com.ablaze.service;
 public interface ProductService {
 
     void browse();
-
     // 模拟更新用户操作
-    String encryption(String plainText);
 }
 

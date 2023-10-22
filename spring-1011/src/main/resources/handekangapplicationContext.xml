@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+	   https://www.springframework.org/schema/beans/spring-beans.xsd
+	   http://www.springframework.org/schema/aop
+	   https://www.springframework.org/schema/aop/spring-aop.xsd">
+
+    <bean id="userServiceImpl" class="com.kangkang.service.impl.ProductServiceImpl"/>
+
+    <bean id="mylogger" class="com.kangkang.util.HanDeKangAdvice">
+    </bean>
+
+    <aop:config>
+        <aop:pointcut expression="execution(* com.kangkang.service.impl.*.*(..) )" id="aop1"/>
+        <!-- 3. 配置切面 -->
+        <aop:aspect id="logAdvice" ref="mylogger">
+            <!-- 配置通知的类型 （原始方法） -->
+            <!-- <aop:before method="printLog" pointcut-ref="pc1" /> <aop:after-returning method="printLog" pointcut-ref="pc1" /> -->
+
+            <!-- <aop:before method="printLog" pointcut="execution(public void com.bookmanagesystem.service.impl.ProductServiceImpl.delete()
+                )" /> -->
+            <!-- 1. 配置前置通知 -->
+            <!-- <aop:before method="beforePrintLog" pointcut-ref="pc1" /> -->
+            <!-- 2. 配置后置通知 -->
+            <!-- <aop:after-returning method="afterReturningPrintLog" pointcut-ref="pc1"
+                /> -->
+            <!-- 3. 配置异常通知 -->
+            <!-- <aop:after-throwing method="afterThrowingPrintLog" pointcut-ref="pc1"
+                /> -->
+            <!-- 4. 配置最终通知 -->
+            <aop:after method="afterPrintLog" pointcut-ref="aop1"/>
+            <!-- 5. 配置环绕通知 -->
+            <aop:around method="aroundPrintLog" pointcut-ref="aop1"/>
+        </aop:aspect>
+    </aop:config>
+
+</beans>
