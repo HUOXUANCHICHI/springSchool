@@ -5,16 +5,16 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 public class TestRef {
 
-	public static void main(String[] args) {
-		
-		ApplicationContext ctx = new ClassPathXmlApplicationContext("applicationContext.xml");
-		User user = (User)ctx.getBean("user");
-		System.out.println(user.toString());
-		
-		System.out.println("***************************");
-		Person person = (Person)ctx.getBean("person");
-		person.show();
-		
-		
-	}
+    public static void main(String[] args) {
+
+        ApplicationContext ctx = new ClassPathXmlApplicationContext("applicationContext.xml");
+        User user = (User) ctx.getBean("user");
+        System.out.println(user);
+
+        System.out.println("***************************");
+        Person person = (Person) ctx.getBean("person");
+        person.show();
+
+
+    }
 }

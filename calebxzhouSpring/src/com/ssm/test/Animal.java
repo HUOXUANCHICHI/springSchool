@@ -1,7 +1,8 @@
 package com.ssm.test;
 
 public interface Animal {
-	void eat();
-	void work();
+    void eat();
+
+    void work();
 
 }

@@ -7,11 +7,11 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 public class TestAOP {
 
-	public static void main(String[] args) {
-		
-		ApplicationContext ctx = new ClassPathXmlApplicationContext("aop.xml");
-		ProductService productService = (ProductService)ctx.getBean("productService");
-		productService.browse("admin","xiaomi");
-	}
+    public static void main(String[] args) {
+
+        ApplicationContext ctx = new ClassPathXmlApplicationContext("aop.xml");
+        ProductService productService = (ProductService) ctx.getBean("productService");
+        productService.browse("admin", "xiaomi");
+    }
 
 }

@@ -16,11 +16,8 @@ public class UserDAOImpl implements UserDAO {
 
     @Override
     public boolean login(String loginName, String loginPwd) {
-        
-        if (loginName.equals("admin") && loginPwd.equals("123456")) {
-            return true;
-        }
-        return false;
+
+        return loginName.equals("admin") && loginPwd.equals("123456");
     }
 
     @Override

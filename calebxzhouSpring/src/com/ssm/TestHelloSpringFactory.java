@@ -8,7 +8,7 @@ import org.springframework.core.io.Resource;
 public class TestHelloSpringFactory {
 
     public static void main(String[] args) {
-        
+
 
         Resource res = new ClassPathResource("hellobean.xml");
         BeanFactory factory = new XmlBeanFactory(res);

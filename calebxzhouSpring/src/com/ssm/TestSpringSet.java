@@ -6,7 +6,7 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 public class TestSpringSet {
 
     public static void main(String[] args) {
-        
+
 
         //初始化Spring容器，加载applicationContext.xml文件
         ApplicationContext ctx = new ClassPathXmlApplicationContext("applicationContext.xml");

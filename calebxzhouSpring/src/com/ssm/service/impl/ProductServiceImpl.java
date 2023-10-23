@@ -9,7 +9,7 @@ public class ProductServiceImpl implements ProductService {
 
     @Override
     public void browse(String loginName, String ProductName) {
-        
+
         System.out.println("执行业务方法browse");
         throw new RuntimeException();
     }

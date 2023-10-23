@@ -5,20 +5,19 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 public class TestAdminInfo {
 
-	public static void main(String[] args) {
-		
-		ApplicationContext ctx = new ClassPathXmlApplicationContext("applicationContext.xml");
-		AdminInfo admin = (AdminInfo) ctx.getBean("adminInfo");
-		admin.print();
-		System.out.println(admin.toString());
-		AdminInfo admin1 = (AdminInfo) ctx.getBean("adminInfo");
-		System.out.println(admin);
-		System.out.println(admin1);
-		System.out.println(admin == admin1);
-		
-		
-		
-		AdminInfo adminp = (AdminInfo) ctx.getBean("admin");
-		adminp.print();
-	}
+    public static void main(String[] args) {
+
+        ApplicationContext ctx = new ClassPathXmlApplicationContext("applicationContext.xml");
+        AdminInfo admin = (AdminInfo) ctx.getBean("adminInfo");
+        admin.print();
+        System.out.println(admin);
+        AdminInfo admin1 = (AdminInfo) ctx.getBean("adminInfo");
+        System.out.println(admin);
+        System.out.println(admin1);
+        System.out.println(admin == admin1);
+
+
+        AdminInfo adminp = (AdminInfo) ctx.getBean("admin");
+        adminp.print();
+    }
 }

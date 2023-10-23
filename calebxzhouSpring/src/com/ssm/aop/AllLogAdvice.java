@@ -50,6 +50,7 @@ public class AllLogAdvice {
         // 演示异常通知时，手动人为抛出异常
         throw new RuntimeException();
     }
+
     @Around("allMethod()")
     public void myAroundAdvice(ProceedingJoinPoint joinPoint) throws Throwable {
         long beginTime = System.currentTimeMillis();
