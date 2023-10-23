@@ -18,7 +18,7 @@ public class UserServiceImpl implements UserService{
 	 */
 	@Override
 	public boolean login(String loginName, String loginPwd) {
-		// TODO Auto-generated method stub
+		
 		//调用数据访问层的login()方法
 		return wuhanhuiDAO.login(loginName, loginPwd);
 //		return wuhanhuiDAO.login(loginName, loginPwd);

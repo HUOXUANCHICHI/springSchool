@@ -6,7 +6,7 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 public class TestAdminInfo {
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
+		
 		ApplicationContext ctx = new ClassPathXmlApplicationContext("applicationContext.xml");
 		AdminInfo admin = (AdminInfo) ctx.getBean("adminInfo");
 		admin.print();

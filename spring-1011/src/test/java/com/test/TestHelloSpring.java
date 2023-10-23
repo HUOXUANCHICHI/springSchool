@@ -9,7 +9,7 @@ import org.springframework.core.io.Resource;
 public class TestHelloSpring {
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
+		
 
 	/*	//初始化容器,引入配置文件  X号点击红线点import                   引号里写配置文件名字
 				ApplicationContext ctx = new ClassPathXmlApplicationContext("applicationContext.xml");

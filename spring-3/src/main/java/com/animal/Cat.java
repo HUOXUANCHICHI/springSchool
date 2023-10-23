@@ -4,13 +4,13 @@ public class Cat implements Animal{
 
 	@Override
 	public void eat() {
-		// TODO Auto-generated method stub
-     System.out.println("Ã¨³ÔÓã");
+		
+     System.out.println("Ã¨ï¿½ï¿½ï¿½ï¿½");
 	}
 
 	@Override
 	public void work() {
-		// TODO Auto-generated method stub
-	 System.out.println("Ã¨×¥ÀÏÊó");
+		
+	 System.out.println("Ã¨×¥ï¿½ï¿½ï¿½ï¿½");
 	}		
 }

@@ -9,7 +9,7 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 public class TestSpringDI {
 
     public static void main(String[] args) {
-        // TODO Auto-generated method stub
+        
 
         ApplicationContext ctx = new ClassPathXmlApplicationContext("applicationContext.xml");
         UserService userService = (UserService) ctx.getBean("userService");

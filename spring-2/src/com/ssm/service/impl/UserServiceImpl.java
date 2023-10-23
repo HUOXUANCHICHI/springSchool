@@ -13,7 +13,7 @@ public class UserServiceImpl implements UserService{
 
 	@Override
 	public boolean login(String loginName, String loginPwd) {
-		// TODO Auto-generated method stub
+		
 		return userDAO.login(loginName, loginPwd);
 	}
 

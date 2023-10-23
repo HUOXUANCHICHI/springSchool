@@ -3,13 +3,13 @@ package com.animal;
 public class Dog implements Animal{
 	@Override
 	public void eat() {
-		// TODO Auto-generated method stub
-     System.out.println("¹·³Ô¹ÇÍ·");
+		
+     System.out.println("ï¿½ï¿½ï¿½Ô¹ï¿½Í·");
 	}
 
 	@Override
 	public void work() {
-		// TODO Auto-generated method stub
-	 System.out.println("¹·¿´¼Ò");
+		
+	 System.out.println("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½");
 	}		
 }
