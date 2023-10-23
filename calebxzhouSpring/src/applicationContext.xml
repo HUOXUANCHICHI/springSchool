@@ -1,35 +1,72 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-       xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:p="http://www.springframework.org/schema/p" xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:context="http://www.springframework.org/schema/context"
        xsi:schemaLocation="http://www.springframework.org/schema/beans
-        https://www.springframework.org/schema/beans/spring-beans.xsd">
+        https://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/aop https://www.springframework.org/schema/aop/spring-aop.xsd http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd">
+    <context:component-scan base-package="com.ssm"></context:component-scan>
+    <!--<aop:aspectj-autoproxy></aop:aspectj-autoproxy>
+    <aop:config>
+        <aop:pointcut expression="execution(* com.ssm.service.impl.*.*(..) )" id="aop1"/>
+        &lt;!&ndash; 3. 配置切面 &ndash;&gt;
+        <aop:aspect id="logAdvice" ref="userDao">
+            &lt;!&ndash; 配置通知的类型 （原始方法） &ndash;&gt;
+            &lt;!&ndash; <aop:before method="printLog" pointcut-ref="pc1" /> <aop:after-returning method="printLog" pointcut-ref="pc1" /> &ndash;&gt;
+
+            &lt;!&ndash; <aop:before method="printLog" pointcut="execution(public void com.bookmanagesystem.service.impl.ProductServiceImpl.delete()
+                )" /> &ndash;&gt;
+            &lt;!&ndash; 1. 配置前置通知 &ndash;&gt;
+            &lt;!&ndash; <aop:before method="beforePrintLog" pointcut-ref="pc1" /> &ndash;&gt;
+            &lt;!&ndash; 2. 配置后置通知 &ndash;&gt;
+            &lt;!&ndash; <aop:after-returning method="afterReturningPrintLog" pointcut-ref="pc1"
+                /> &ndash;&gt;
+            &lt;!&ndash; 3. 配置异常通知 &ndash;&gt;
+            &lt;!&ndash; <aop:after-throwing method="afterThrowingPrintLog" pointcut-ref="pc1"
+                /> &ndash;&gt;
+            &lt;!&ndash; 4. 配置最终通知 &ndash;&gt;
+            <aop:after method="afterPrintLog" pointcut-ref="aop1"/>
+            &lt;!&ndash; 5. 配置环绕通知 &ndash;&gt;
+            <aop:around method="aroundPrintLog" pointcut-ref="aop1"/>
+        </aop:aspect>
+    </aop:config>-->
+    <bean id="sampleAdder" class="com.ssm.aop.SampleAdder" />
+    <bean id="doAfterReturningAspect"
+          class="com.ssm.aop.AdderAfterReturnAspect" />
+    <aop:config>
+        <aop:aspect id="aspects" ref="doAfterReturningAspect">
+            <aop:pointcut id="pointCutAfterReturning" expression=
+                    "execution(* com.ssm.aop.SampleAdder+.*(..))"/>
+            <aop:after-returning method="afterReturn"
+                                 returning="returnValue" pointcut-ref="pointCutAfterReturning"/>
+        </aop:aspect>
+    </aop:config>
 
     <bean id="cat" class="com.animal.Cat"/>
     <bean id="dog" class="com.animal.Dog"/>
     <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
         <property name="driverClassName" value="com.mysql.cj.jdbc.Driver"/>
-        <property name="url" value="jdbc:mysql://localhost:3306/scott?serverTimezone=Asia/Shanghai"/>
+        <property name="url" value="jdbc:mysql://localhost:3306/ssm?serverTimezone=Asia/Shanghai"/>
         <property name="username" value="root"/>
-        <property name="password" value="Xh710708"/>
+        <property name="password" value="zxc.0609"/>
     </bean>
     <bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">
-        <property name="dataSource" ref="dataSource"></property>
+        <property name="dataSource" ref="dataSource"/>
 
     </bean>
     <bean id="userDao" class="com.ssm.dao.impl.UserDAOImpl">
-        <property name="jdbcTempLate" ref="jdbcTemplate"></property>
+        <property name="jdbcTempLate" ref="jdbcTemplate"/>
     </bean>
 
     <!-- 配置一个bean，将指定类配置给Spring，让Spring来创建其对象的实例 -->
     <bean id="helloSpring" class="com.ssm.HelloSpring">
         <!-- 为属性赋值 -->
-        <property name="userName" value="张三"></property>
+        <property name="userName" value="张三"/>
     </bean>
 
     <bean id="adminInfoCons" class="com.ssm.AdminInfo">
         <!-- 		<constructor-arg name="id" value="5"></constructor-arg> -->
-        <constructor-arg name="name" value="admin"></constructor-arg>
+        <constructor-arg name="name" value="admin"/>
         <constructor-arg name="pwd" value="123456"/>
     </bean>
     <!-- 	<bean id="admin"  class="com.ssm.AdminInfo" p:id="8" p:name="yzpc" p:pwd="yzpc" /> -->
@@ -37,15 +74,15 @@
 
     <bean id="adminInfoSet" class="com.ssm.AdminInfo">
 
-        <property name="id" value="5"></property>
-        <property name="name" value="admin"></property>
-        <property name="pwd" value="123456"></property>
+        <property name="id" value="5"/>
+        <property name="name" value="admin"/>
+        <property name="pwd" value="123456"/>
 
     </bean>
 
     <bean id="user" class="com.ssm.User">
-        <property name="userID" value="zzz"></property>
-        <property name="userName" value="nnn"></property>
+        <property name="userID" value="zzz"/>
+        <property name="userName" value="nnn"/>
     </bean>
 
     <bean id="person" class="com.ssm.Person" p:user-ref="user">
@@ -53,9 +90,10 @@
     </bean>
 
 
-    <bean id="userDAO" class="com.ssm.dao.impl.UserDAOImpl"></bean>
+    <bean id="userDAO" class="com.ssm.dao.impl.UserDAOImpl"/>
     <bean id="userService" class="com.ssm.service.impl.UserServiceImpl" autowire="byName">
         <!-- <property name="userDAO" ref="userDAO"></property> -->
     </bean>
-
+    <bean id="hero" class="com.ssm.entity.Hero" init-method="born" destroy-method="destroy"/>
+    <bean id="batman" class="com.ssm.Batman"/>
 </beans>
