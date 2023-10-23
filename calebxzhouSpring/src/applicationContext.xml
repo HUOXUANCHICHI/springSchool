@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        https://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="cat" class="com.animal.Cat"/>
+    <bean id="dog" class="com.animal.Dog"/>
+    <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+        <property name="driverClassName" value="com.mysql.cj.jdbc.Driver"/>
+        <property name="url" value="jdbc:mysql://localhost:3306/scott?serverTimezone=Asia/Shanghai"/>
+        <property name="username" value="root"/>
+        <property name="password" value="Xh710708"/>
+    </bean>
+    <bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">
+        <property name="dataSource" ref="dataSource"></property>
+
+    </bean>
+    <bean id="userDao" class="com.ssm.dao.impl.UserDAOImpl">
+        <property name="jdbcTempLate" ref="jdbcTemplate"></property>
+    </bean>
+
+    <!-- 配置一个bean，将指定类配置给Spring，让Spring来创建其对象的实例 -->
+    <bean id="helloSpring" class="com.ssm.HelloSpring">
+        <!-- 为属性赋值 -->
+        <property name="userName" value="张三"></property>
+    </bean>
+
+    <bean id="adminInfoCons" class="com.ssm.AdminInfo">
+        <!-- 		<constructor-arg name="id" value="5"></constructor-arg> -->
+        <constructor-arg name="name" value="admin"></constructor-arg>
+        <constructor-arg name="pwd" value="123456"/>
+    </bean>
+    <!-- 	<bean id="admin"  class="com.ssm.AdminInfo" p:id="8" p:name="yzpc" p:pwd="yzpc" /> -->
+
+
+    <bean id="adminInfoSet" class="com.ssm.AdminInfo">
+
+        <property name="id" value="5"></property>
+        <property name="name" value="admin"></property>
+        <property name="pwd" value="123456"></property>
+
+    </bean>
+
+    <bean id="user" class="com.ssm.User">
+        <property name="userID" value="zzz"></property>
+        <property name="userName" value="nnn"></property>
+    </bean>
+
+    <bean id="person" class="com.ssm.Person" p:user-ref="user">
+        <!-- <property name="user" ref="user"></property> -->
+    </bean>
+
+
+    <bean id="userDAO" class="com.ssm.dao.impl.UserDAOImpl"></bean>
+    <bean id="userService" class="com.ssm.service.impl.UserServiceImpl" autowire="byName">
+        <!-- <property name="userDAO" ref="userDAO"></property> -->
+    </bean>
+
+</beans>
