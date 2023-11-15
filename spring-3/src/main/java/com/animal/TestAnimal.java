@@ -7,11 +7,11 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 public class TestAnimal {
      public static void main(String[] args) {
-    	//1.³õÊ¼»¯ÈİÆ÷£¬¼ÓÔØÅäÖÃÎÄ¼ş
+    	//1.åˆå§‹åŒ–å®¹å™¨ï¼ŒåŠ è½½é…ç½®æ–‡ä»¶
      	ApplicationContext ctx = new ClassPathXmlApplicationContext("applicationContext.xml");
-     	//2.»ñÈ¡ÊµÀı»¯¶ÔÏó
+     	//2.è·å–å®ä¾‹åŒ–å¯¹è±¡
      	Cat cat = (Cat) ctx.getBean("cat");
-     	//3.ÒµÎñÂß¼­
+     	//3.ä¸šåŠ¡é€»è¾‘
      	cat.eat();
      	cat.work();
      	

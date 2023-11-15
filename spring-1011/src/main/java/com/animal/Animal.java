@@ -2,6 +2,7 @@ package com.animal;
 
 public interface Animal {
 
-	public void eat();
-	public void work();
+    public void eat();
+
+    public void work();
 }

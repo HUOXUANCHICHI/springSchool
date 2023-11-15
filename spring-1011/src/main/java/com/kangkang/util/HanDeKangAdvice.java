@@ -28,6 +28,7 @@ public class HanDeKangAdvice {
     public void afterPrintLog() {
         System.out.println("最终通知MyLogger类中的afterPrintLog方法开始记录日志了。。。");
     }
+
     //环绕通知
     public Object aroundPrintLog(ProceedingJoinPoint pjp) {
         Object result = null;
@@ -43,5 +44,6 @@ public class HanDeKangAdvice {
             throw new RuntimeException(e);
         } finally {
             System.out.println("handekang环绕通知记录日最终");
-        } }
+        }
+    }
 }

@@ -26,9 +26,9 @@ public class TestSpringDI {
         ApplicationContext ctx = new ClassPathXmlApplicationContext("applicationContext.xml");
         UserService userService = (UserService) ctx.getBean("wuhanhuiService");
         boolean flag = userService.login("吴晗辉", "");
-        if(flag) {
+        if (flag) {
             System.out.println("登陆成功！");
-        }else {
+        } else {
             System.out.println("登陆失败！");
         }
     }

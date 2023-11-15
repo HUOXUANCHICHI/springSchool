@@ -10,51 +10,52 @@ public class AdminInfo {
     private int id;
     private String name;
     private String pwd;
-    
-    
-	//无参数的构造方法
-	public AdminInfo() {
-		
-	}
-	
-	//带参数的构造方法
-    public AdminInfo(String name,String pwd) {
-    	this.name=name;
-    	this.pwd=pwd;
-    
-    	
-    	
+
+
+    //无参数的构造方法
+    public AdminInfo() {
+
     }
+
+    //带参数的构造方法
+    public AdminInfo(String name, String pwd) {
+        this.name = name;
+        this.pwd = pwd;
+
+
+    }
+
     public void print() {
-    	System.out.print(id + "--" + name + "--" + pwd);
-    	
+        System.out.print(id + "--" + name + "--" + pwd);
+
     }
-	@Override
-	public String toString() {
-		return "AdminInfo [id=" + id + ", name=" + name + ", pwd=" + pwd + "]";
-	}
 
-	public int getId() {
-		return id;
-	}
+    @Override
+    public String toString() {
+        return "AdminInfo [id=" + id + ", name=" + name + ", pwd=" + pwd + "]";
+    }
 
-	public void setId(int id) {
-		this.id = id;
-	}
+    public int getId() {
+        return id;
+    }
 
-	public String getName() {
-		return name;
-	}
+    public void setId(int id) {
+        this.id = id;
+    }
 
-	public void setName(String name) {
-		this.name = name;
-	}
+    public String getName() {
+        return name;
+    }
 
-	public String getPwd() {
-		return pwd;
-	}
+    public void setName(String name) {
+        this.name = name;
+    }
 
-	public void setPwd(String pwd) {
-		this.pwd = pwd;
-	}  
+    public String getPwd() {
+        return pwd;
+    }
+
+    public void setPwd(String pwd) {
+        this.pwd = pwd;
+    }
 }

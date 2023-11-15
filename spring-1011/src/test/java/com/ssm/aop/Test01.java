@@ -10,7 +10,7 @@ import org.junit.Test;
  */
 public class Test01 {
     @Test
-    public void test01(){
+    public void test01() {
 
     }
 }

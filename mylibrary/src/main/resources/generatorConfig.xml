@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+  PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+  "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+ 
+<generatorConfiguration>
+    <classPathEntry
+        location="src/main/webapp/WEB-INF/lib/mysql-connector-java-8.0.16.jar" />
+    <context id="DB2Tables" targetRuntime="MyBatis3">
+        <commentGenerator>
+            <property name="suppressAllComments" value="true" /><!-- 是否取消注释 -->
+            <property name="suppressDate" value="true" /> <!-- 是否生成注释代时间戳 -->
+        </commentGenerator>
+            <!--数据库驱动 -->
+        <jdbcConnection driverClass="com.mysql.cj.jdbc.Driver"
+            connectionURL="jdbc:mysql://localhost:3306/eshop?serverTimezone=GMT" 
+             userId="root"
+            password="123456">
+        </jdbcConnection>
+ 		<!-- 只有一个属于forceBigDecimals，默认false。 如果字段精确超过0，生成BigDecimal 如果字段精确是0，总长度10-18生成Long;如果字段精确是0， 
+           	 总长5-9生成Integer; 如果字段精确是0，总长小于5生成Short; 如果forceBigDecimals为true,统一生成BigDecimal -->
+        <javaTypeResolver>
+         <!-- 是否使用bigDecimal， false可自动转化以下类型（Long, Integer, Short, etc.） -->
+            <property name="forceBigDecimals" value="false" />
+        </javaTypeResolver>
+ 		<!--生成Model.java文件 -->
+        <javaModelGenerator targetPackage="com.library.bean"
+            targetProject="src/main/java">
+            <!-- enableSubPackages:是否让schema作为包的后缀 -->
+            <property name="enableSubPackages" value="false" />
+            <!-- 是否针对string类型的字段在set的时候进行trim调用 -->
+            <property name="trimStrings" value="true" />
+        </javaModelGenerator>
+  		<!-- 生成Mapper.xml文件 -->
+        <sqlMapGenerator targetPackage="com.library.mapping"
+            targetProject="src/main/java">
+              <!-- enableSubPackages:是否让schema作为包的后缀 -->
+            <property name="enableSubPackages" value="false" />
+        </sqlMapGenerator>
+  		<!-- 生成Mapper.java文件，即dao层 -->
+        <javaClientGenerator type="XMLMAPPER"
+            targetPackage="com.library.dao" targetProject="src/main/java">
+            <property name="enableSubPackages" value="false" />
+        </javaClientGenerator>
+             <!-- 待生成的数据库中的表名，生成一个表对应的Java和xml文件就需要配置一段 -->
+        <!-- <table tableName="tag_enemy_code" domainObjectName="tag_enemy_code"></table> -->
+        <table tableName="user_t" domainObjectName="UserT"
+            enableCountByExample="false" enableUpdateByExample="false"
+            enableDeleteByExample="false" enableSelectByExample="false"
+            selectByExampleQueryId="false"></table>
+              
+        
+    </context>
+</generatorConfiguration>

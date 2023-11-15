@@ -1,36 +1,50 @@
 package com.ssm.entity;
 
 public class User {
-    private String userID;
+    private int id;
     private String userName;
-    
-    public String getUserID() {
-		return userID;
-	}
 
-	public void setUserID(String userID) {
-		this.userID = userID;
-	}
+    private String password;
 
-	public String getUserName() {
-		return userName;
-	}
-
-	public void setUserName(String userName) {
-		this.userName = userName;
-	}
-
-	public User(String userID,String userName) {
-    	this.userID = userID;
-    	this.userName = userName;
+    public int getId() {
+        return id;
     }
 
-	public User() {
-		
-	}
-	@Override
-	public String toString() {
-		return "User [userID=" + userID + ", userName=" + userName + "]";
-	}
-    
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getUserName() {
+        return userName;
+    }
+
+    public void setUserName(String userName) {
+        this.userName = userName;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public User(int id, String userName, String password) {
+        this.id = id;
+        this.userName = userName;
+        this.password = password;
+    }
+
+    public User() {
+    }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "id=" + id +
+                ", userName='" + userName + '\'' +
+                ", password='" + password + '\'' +
+                '}';
+    }
 }

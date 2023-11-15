@@ -1,27 +1,27 @@
 package com.ssm.entity;
 
 public class Person {
-  private User user;
-  
-  public Person() {
-	super();
-}
+    private User user;
 
-public User getUser() {
-	return user;
-}
+    public Person() {
+        super();
+    }
 
-public void setUser(User user) {
-	this.user = user;
-}
+    public User getUser() {
+        return user;
+    }
 
-public Person(User user) {
-	  this.user = user;
-  }
-  
-  public void show() {
-	  System.out.println(user.toString());
-  }
-  
-  
+    public void setUser(User user) {
+        this.user = user;
+    }
+
+    public Person(User user) {
+        this.user = user;
+    }
+
+    public void show() {
+        System.out.println(user.toString());
+    }
+
+
 }
